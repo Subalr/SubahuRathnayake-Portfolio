@@ -73,6 +73,24 @@ function init() {
     renderProjects('all');
     setupFilterButtons();
     setupModal();
+    setupMobileNav();
+}
+
+// Mobile nav toggle behavior
+function setupMobileNav() {
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (!toggle || !navLinks) return;
+
+    toggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        toggle.classList.toggle('open');
+    });
+
+    // Close menu when a nav link is clicked
+    navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
 }
 
 // Render projects based on filter
