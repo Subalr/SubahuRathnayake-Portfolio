@@ -1157,3 +1157,17 @@ footer {
         font-size: 1.6rem;
     }
 }
+
+/* Portrait thumbnails for mobile-app projects on small screens */
+@media (max-width: 768px) {
+    .modal-thumbs.mobile img {
+        width: 56px;
+        height: 96px;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+
+    .modal-thumbs.mobile img.active {
+        transform: translateY(-4px) scale(1.02);
+    }
+}

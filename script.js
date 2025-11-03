@@ -273,10 +273,31 @@ function openModal(project) {
                 thumbs.forEach(t => t.classList.remove('active'));
                 if (thumbs[idx]) {
                     thumbs[idx].classList.add('active');
-                    // Calculate a centered scroll position but clamp to bounds so first thumbnails stay visible
+                    // Calculate scroll behavior.
+                    // On mobile (or for mobile-app projects where thumbs are portrait), prefer left-aligned scrolling
+                    // so the strip starts from the first images instead of centering (which can hide the first items).
                     const thumb = thumbs[idx];
-                    const left = thumb.offsetLeft - (modalThumbs.clientWidth / 2) + (thumb.clientWidth / 2);
-                    modalThumbs.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
+                    const thumbLeft = thumb.offsetLeft;
+                    const thumbRight = thumbLeft + thumb.clientWidth;
+                    const viewLeft = modalThumbs.scrollLeft;
+                    const viewRight = viewLeft + modalThumbs.clientWidth;
+
+                    const isMobileThumbs = modalThumbs.classList.contains('mobile') || window.innerWidth <= 768;
+
+                    if (isMobileThumbs) {
+                        // If the active thumb is left of the viewport, snap left to it.
+                        if (thumbLeft < viewLeft) {
+                            modalThumbs.scrollTo({ left: thumbLeft, behavior: 'smooth' });
+                        } else if (thumbRight > viewRight) {
+                            // If it's to the right, bring it into view aligned near left with a small padding
+                            modalThumbs.scrollTo({ left: Math.max(0, thumbLeft - 8), behavior: 'smooth' });
+                        }
+                        // otherwise leave as is (already visible)
+                    } else {
+                        // Center the active thumbnail on wider screens
+                        const left = thumbLeft - (modalThumbs.clientWidth / 2) + (thumb.clientWidth / 2);
+                        modalThumbs.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
+                    }
                 }
             }
 
