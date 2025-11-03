@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subahu Rathnayake</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Subahu Rathnayake</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                
+                <h1 class="hero-title">
+                    Business Analyst & 
+                    <span class="gradient-text">UI/UX Designer</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Bridging business strategy and user experience through data-driven insights and human-centered design
+                </p>
+
+                <!-- About paragraph moved to dedicated About section -->
+
+                <div class="hero-actions">
+                    <a href="#projects" class="cta-button primary">
+                        <span>View Projects</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="cta-button secondary">
+                        <span>Contact</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="profile-wrapper">
+                    <div class="profile-decoration"></div>
+                    <img src="profile.jpg" alt="Professional portrait" class="profile-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <h1 class="about-title">About Me</h1>
+            <p class="about-text">I’m Subahu Lankesha Rathnayake, an Information Systems undergraduate passionate about blending business strategy with user-focused design. As an aspiring Business Analyst and UI/UX enthusiast, I’m driven by the goal of turning complex ideas into clear, functional, and impactful digital solutions. I value attention to detail, effective communication, and the ability to connect technology with real business needs. Proficient in Jira, Trello, and Figma, I aim to grow as a professional who bridges business goals and user experiences seamlessly.</p>
+        </div>
+    </section>
+
+    <!-- neon divider separating About from Projects -->
+    <div class="neon-divider" aria-hidden="true"></div>
+
+    <section id="projects">
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="mobile">Mobile App</button>
+            <button class="filter-btn" data-filter="web">Web Design</button>
+        </div>
+
+        <div class="projects" id="projectsGrid">
+            <!-- Projects will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-carousel">
+                <button class="modal-prev" id="modalPrev" aria-label="Previous">&#x2039;</button>
+                <img class="modal-image" id="modalImage" src="" alt="">
+                <button class="modal-next" id="modalNext" aria-label="Next">&#x203A;</button>
+                <div class="modal-thumbs" id="modalThumbs"></div>
+            </div>
+            <div class="modal-info">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <div class="modal-details">
+                    <div class="modal-detail">
+                        <span class="modal-detail-label">Category</span>
+                        <span class="modal-detail-value" id="modalCategory"></span>
+                    </div>
+                    <div class="modal-detail">
+                        <span class="modal-detail-label">Year</span>
+                        <span class="modal-detail-value" id="modalYear"></span>
+                    </div>
+                    <div class="modal-detail">
+                        <span class="modal-detail-label">Tools</span>
+                        <span class="modal-detail-value" id="modalTools"></span>
+                    </div>
+                </div>
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="neon-divider" aria-hidden="true"></div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <h2 class="contact-title">Contact</h2>
+            <p class="contact-lead">I'd love to hear about your project or role — reach out using any of the channels below.</p>
+
+            <div class="contact-grid">
+                <!-- Phone -->
+                <a class="contact-card" href="tel:+94123456789" aria-label="Call mobile number">
+                        <div class="contact-icon" aria-hidden="true">
+                            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                        </div>
+                    <div class="contact-body">
+                        <div class="contact-label">Mobile</div>
+                        <div class="contact-value">+94 71 410 3399</div>
+                    </div>
+                </a>
+
+                <!-- Email -->
+                <a class="contact-card" href="mailto:rathnayakesubahu2002@gmail.com" aria-label="Send email" target="_blank" rel="noopener noreferrer">
+                    <div class="contact-icon" aria-hidden="true">
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    </div>
+                    <div class="contact-body">
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">rathnayakesubahu2002@gmail.com</div>
+                    </div>
+                </a>
+
+                <!-- LinkedIn -->
+                <a class="contact-card" href="https://www.linkedin.com/in/subahu-rathnayake-92b516248/" aria-label="LinkedIn profile" target="_blank" rel="noopener noreferrer">
+                    <div class="contact-icon" aria-hidden="true">
+                        <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                    </div>
+                    <div class="contact-body">
+                        <div class="contact-label">LinkedIn</div>
+                        <div class="contact-value">linkedin.com/in/SubahuRathnayake</div>
+                    </div>
+                </a>
+
+                <!-- Resume -->
+                <a class="contact-card" href="Resume.pdf" aria-label="Download resume" target="_blank" rel="noopener noreferrer">
+                    <div class="contact-icon" aria-hidden="true">
+                        <i class="fa-solid fa-file" aria-hidden="true"></i>
+                    </div>
+                    <div class="contact-body">
+                        <div class="contact-label">Resume</div>
+                        <div class="contact-value">Download CV</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Subahu Rathnayake </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
